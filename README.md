@@ -2,7 +2,8 @@
 
 This project is for all users of azure netapp files who like to deploy and automize their environment using ansible.
 <br><br>
-The first script "anf_volume.py" provides an easy way of deploying and maintaining volumes by limiting the required informations and automizes / abstracts the whole Netapp Account & Capacity Pool handling.<br><br>
+## anf_volume.py
+The first script provides an easy way of deploying and maintaining volumes by limiting the required informations and automizes / abstracts the whole Netapp Account & Capacity Pool handling.<br><br>
 <b>Features:</b><br>
 <div><ul>
   <li>check if netapp account exists, and create one if missing</li>
@@ -16,6 +17,120 @@ The first script "anf_volume.py" provides an easy way of deploying and maintaini
 
 <br><br>
 <b>Parameters</b>
+<table>
+  <tr>
+    <th>parameter</th>
+    <th>requred</th>
+    <th>default</th>
+    <th>possible values</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>provider</td>
+    <td>no</td>
+    <td>azure</td>
+    <td>azure</td>
+    <td>only azure support right now.</td>
+  </tr>
+  <tr>
+    <td>tenant</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>azure tenenat id</td>
+  </tr>
+  <tr>
+    <td>subscription_id</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>azure subscription id</td>
+  </tr>
+  <tr>
+    <td>client_id</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>application (client) id</td>
+  </tr>
+  <tr>
+    <td>secret</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>application (client) secret</td>
+  </tr>
+  <tr>
+    <td>resource_group</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>resource group for your anf service</td>
+  </tr>
+  <tr>
+    <td>resource_group_net</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>resource group of the existing anf vnet/subnet</td>
+  </tr>
+  <tr>
+    <td>virtualnetwork</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>vnet for anf</td>
+  </tr>
+  <tr>
+    <td>subnet</td>
+    <td>no</td>
+    <td>sto</td>
+    <td></td>
+    <td>subnet for anf. Till now only basic networking supported. Requirements can be found here: <link>https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-network-topologies#subnets</link></td>
+  </tr>
+  <tr>
+    <td>accountname</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>name of the netapp account</td>
+  </tr>
+  <tr>
+    <td>location</td>
+    <td>no</td>
+    <td>westeurope</td>
+    <td></td>
+    <td>all available anf locations. check out: <link>https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=netapp</link></td>
+  </tr>
+  <tr>
+    <td>sku</td>
+    <td>no</td>
+    <td>Standard</td>
+    <td>Standard<br>Premium<br>Ultra</td>
+    <td>Storage Class of the volume. sku info can be found here: <link>https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels</link></td>
+  </tr>
+  <tr>
+    <td>volname</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>name of the volume</td>
+  </tr>
+  <tr>
+    <td>volsize</td>
+    <td>yes</td>
+    <td></td>
+    <td></td>
+    <td>volume size in gb</td>
+  </tr>
+  <tr>
+    <td>state</td>
+    <td>no</td>
+    <td>present</td>
+    <td>present<br>absent<br>offline</td>
+    <td>"present" creates or updates a volume and if required the netapp account and capacity pool.<br><br>"absent" deletes a volume and if it's the last one deletes the capacity pool and storage account.<br><br>"offline" shrinks the volume to the minimum possible used space.</td>
+  </tr>
+</table>
 
 <b>Example</b>
 <pre><code>
@@ -38,4 +153,6 @@ The first script "anf_volume.py" provides an easy way of deploying and maintaini
     state: present
   delegate_to: localhost
 </code></pre>
-The second script "anf_volume_backup.py" provides easy anf snapshot management
+
+## anf_volume_backup.py
+The second script provides easy anf snapshot management
