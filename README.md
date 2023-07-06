@@ -11,9 +11,9 @@ The first script "anf_volume.py" provides an easy way of deploying and maintaini
   <li>adjust capacity pool, if volumes growth changes or new requires more space (shrink/grow)</li>
   <li>delete snapshots if existing before vol deletion</li>
   <li>delete volume, capacity pool, netapp account (only if it was the last vol and last capacity pool triggering deletion)</li>
+  <li>volume state "offline" decreases the volume size to the minimum possible (used) capacity in the volume. for example: 1000 gb volume with only 200 gb used capacity will be decreased to 200 gb only.</li>
 </ul></div>
 
-The second script "anf_volume_backup.py" provides easy anf snapshot management
 <br><br>
 <b>Parameters</b>
 
@@ -38,3 +38,4 @@ The second script "anf_volume_backup.py" provides easy anf snapshot management
     state: present
   delegate_to: localhost
 </code></pre>
+The second script "anf_volume_backup.py" provides easy anf snapshot management
