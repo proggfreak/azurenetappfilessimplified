@@ -2,7 +2,7 @@
 
 This project is for all users of azure netapp files who like to deploy and automize their environment using ansible.
 <br><br>
-It provides an easy way of deploying and maintaining volumes by limiting the required informations and outomizes / abstracts the whole Netapp Account & Capacity Pool handling.
+It provides an easy way of deploying and maintaining volumes by limiting the required informations and automizes / abstracts the whole Netapp Account & Capacity Pool handling.
 <br><br>
 <b>Parameters</b>
 
