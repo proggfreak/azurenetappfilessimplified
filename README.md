@@ -1,6 +1,9 @@
 # Azure Netapp Files simplified in Ansible
 
 This project is for all users of azure netapp files who like to deploy and automize their environment using ansible.
+<br>
+The auto shrink of the capacity pool and offline volume functionality can save a lot of money!
+
 <br><br>
 ## anf_volume.py
 The first script provides an easy way of deploying and maintaining volumes by limiting the required informations and automizes / abstracts the whole Netapp Account & Capacity Pool handling.<br><br>
