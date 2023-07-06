@@ -6,12 +6,11 @@ This project is for all users of azure netapp files who like to deploy and autom
 The first script provides an easy way of deploying and maintaining volumes by limiting the required informations and automizes / abstracts the whole Netapp Account & Capacity Pool handling.<br><br>
 <b>Features:</b><br>
 <div><ul>
-  <li>check if netapp account exists, and create one if missing</li>
-  <li>check if capacity pool exists, and create one if missing (min 4 TB or given vol size if larger 4 TB)</li>
-  <li>check if vol already exists, if yes extend or shrink, If not create</li>
-  <li>efficient capacity pool handling: new volume created or existing updated requires more space / existing volume deleted or shrinked results in possible capacity pool shrink (shrink/grow)</li>
+  <li>automated netapp account creation / deletion</li>
+  <li>automated capacity pool creation / resizing / deletion</li>
+  <li>automated volume creation / resizing / deletion</li>
+  <li>efficient capacity pool handling - use only what you need & save cost!</li>
   <li>delete snapshots if existing before vol deletion</li>
-  <li>delete volume, capacity pool, netapp account (only if it was the last vol and last capacity pool triggering deletion)</li>
   <li>volume state "offline" decreases the volume size to the minimum possible (used) capacity in the volume. for example: 1000 gb volume with only 200 gb used capacity will be decreased to 200 gb only.</li>
 </ul></div>
 
