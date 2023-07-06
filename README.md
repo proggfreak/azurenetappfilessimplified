@@ -8,7 +8,7 @@ The first script "anf_volume.py" provides an easy way of deploying and maintaini
   <li>check if netapp account exists, and create one if missing</li>
   <li>check if capacity pool exists, and create one if missing (min 4 TB or given vol size if larger 4 TB)</li>
   <li>check if vol already exists, if yes extend or shrink, If not create</li>
-  <li>adjust capacity pool, if volumes growth changes or new requires more space (shrink/grow)</li>
+  <li>efficient capacity pool handling: new volume created or existing updated requires more space / existing volume deleted or shrinked results in possible capacity pool shrink (shrink/grow)</li>
   <li>delete snapshots if existing before vol deletion</li>
   <li>delete volume, capacity pool, netapp account (only if it was the last vol and last capacity pool triggering deletion)</li>
   <li>volume state "offline" decreases the volume size to the minimum possible (used) capacity in the volume. for example: 1000 gb volume with only 200 gb used capacity will be decreased to 200 gb only.</li>
